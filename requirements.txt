@@ -7,3 +7,4 @@ httplib2>=0.8
 pyPdf2>=1.26
 Pillow>=2.4.0
 reportlab>=3
+six==1.15.0
