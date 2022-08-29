@@ -8,7 +8,7 @@ import os
 from django.conf import settings
 from django.template import loader
 from django.http import HttpResponse
-from django.utils.http import urlquote
+import urllib.parse
 from .compat import BytesIO
 
 import xhtml2pdf.default
@@ -92,7 +92,7 @@ def encode_filename(filename):
     # TODO: http://greenbytes.de/tech/webdav/rfc6266.html
     # TODO: http://greenbytes.de/tech/tc2231/
 
-    quoted = urlquote(filename)
+    quoted = urllib.parse.quote_plus(filename)
     if quoted == filename:
         return "filename=%s" % filename
     else:
